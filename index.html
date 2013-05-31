@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			JavaScript Good Practices
+		</title>
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.min.css" type="text/css">
+		<link rel="stylesheet" href="css/theme/cobalt.css" id="theme" type="text/css"><!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css" type="text/css"><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+
+		<link rel="stylesheet" href="css/custom.css" type="text/css">
+		<script type="text/javascript">
+	document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+		<!--[if lt IE 9]>
+			<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>
+							JavaScript
+						</h1>
+						<h1>
+							“Best Practices”
+						</h1>
+					</section>
+					<section>
+						<h2>
+							“Best Practice” presentations
+						</h2>
+						<h2>
+							are hard to do.
+						</h2>
+					</section>
+					<section>
+						 
+						<p class="p1">
+							Trying to tell developers to
+						</p>
+						<p class="p1">
+							change their ways and follow
+						</p>
+						<p class="p1">
+							your example is a tough call.
+						</p>
+					</section>
+					<section>
+				
+						<h2>
+							I also consider it a flawed
+						</h2>
+						<h2>
+							process.
+						</h2>
+					</section>
+					<section>
+
+						<h2>
+							I am bored of discussions of
+							syntax details.
+						</h2>
+
+						<img src="img/Image_007.png"/>
+					</section>
+					<section data-state="preach">
+						<h3>
+							This is not about forcing you to
+							<br>
+							believe what I believe.
+						</h3>
+						 
+					</section>
+					<section>
+
+						<p class="p1">
+							This is about telling you what
+						</p>
+						<p class="p1">
+							worked for me and might as
+						</p>
+						<p class="p1">
+							well work for you.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							I've collected a lot of ideas
+						</p>
+						<p class="p1">
+							and tips over time how to be
+						</p>
+						<p class="p1">
+							more effective.
+						</p>
+					</section>
+					<section>
+						<p class="p1"></p>
+						<ul>
+							<li class='fragment grow visible' data-fragment-index="0" >
+								Make it understandable<br>
+							</li>
+							<li class='fragment grow' data-fragment-index="1" >
+								Avoid globals<br>
+							</li>
+							<li class='fragment grow' data-fragment-index="2" >
+								Stick to a strict coding style<br>
+							</li>
+							<li class='fragment grow' data-fragment-index="3">
+								Comment as much as needed but not more
+							</li>
+							<li class='fragment grow' data-fragment-index="4">
+								Avoid mixing with other technologies
+							</li>
+							<li class='fragment grow' data-fragment-index="5" >
+								Use shortcut notations<br>
+							</li>
+							<li class='fragment grow' data-fragment-index="6" >
+								Modularize<br>
+							</li>
+							<!-- <li class='fragment grow' data-fragment-index="7" >
+								Enhance progressively<br>
+							</li> -->
+							<li class='fragment grow' data-fragment-index="8">
+								Allow for configuration and translation
+							</li>
+							<li class='fragment grow' data-fragment-index="9" >
+								Avoid heavy nesting<br>
+							</li>
+							<li class='fragment grow' data-fragment-index="10" >
+								Optimize loops<br>
+							</li>
+							<li class='fragment grow' data-fragment-index="11">
+								Keep DOM access to a minimum
+							</li>
+							<!-- <li class='fragment grow' data-fragment-index="12" >
+								Don't yield to browser whims<br>
+							</li> -->
+							<li class='fragment grow' data-fragment-index="13" >
+								Don't trust any data<br>
+							</li>
+							<li class='fragment grow' data-fragment-index="14" >
+								Add functionality with JavaScript, not content<br>
+							</li>
+							<li class='fragment grow' data-fragment-index="14" >
+								Keep your code unobstrusive<br>
+							</li>
+							<li class='fragment grow' data-fragment-index="15">
+								Build on the shoulders of giants
+							</li>
+							<li class='fragment grow' data-fragment-index="16">
+								Development code is not live code
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+
+						<h2>
+							Make it understandable!
+						</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							Choose easy to understand
+						</p>
+						<p class="p1">
+							and short names for variables
+						</p>
+						<p class="p1">
+							and functions.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Bad variable names:
+						</p>
+						<pre><code>x1 fe2 xbqne</code></pre>
+					</section>
+					<section>
+
+						<p class="p1">
+							Also bad variable names:
+						</p>
+<pre><code>incrementorForMainLoopWhichSpansFromTenToTwenty
+createNewMemberIfAgeOverTwentyOneAndMoonIsFull
+</code></pre>
+					</section>
+					<section>
+
+						<p class="p1">
+							Avoid describing a value with
+						</p>
+						<p class="p1">
+							your variable or function
+						</p>
+						<p class="p1">
+							name.
+						</p>
+					</section>
+					<section>
+						<p class="p1">
+							For example
+						</p>
+						<p class="p2"></p>
+<pre><code>isOverEighteen();</code></pre>
+						<p class="p1">
+							might not make sense in
+						</p>
+						<p class="p1">
+							some countries,
+						</p>
+						<p class="p2"></p>
+<pre><code>isLegalAge();</code></pre>
+						<p class="p2">
+							<span class="s1">however</span>
+						</p>
+						<p class="p1">
+							works everywhere.
+						</p>
+					</section>
+					<section>
+						<h3>Think of your code as a story.</h3>
+						<p class="p1">
+							If readers get stuck because
+							of an unpronounceable
+							character in your story that
+							isn't part of the main story
+							line, give it another, easier
+							name.
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Avoid f**ing globals</h2>
+					</section>
+					<section>
+						<p class="p1">
+							Global variables are a terribly
+						</p>
+						<p class="p1">
+							bad idea.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							You run the danger of your
+						</p>
+						<p class="p1">
+							code being overwritten by
+						</p>
+						<p class="p1">
+							any other JavaScript added to
+						</p>
+						<p class="p1">
+							the page after yours.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							The workaround is to use
+						
+							closures and the module
+						
+							pattern.
+						</p>
+					</section>
+					<section>
+<pre><code>var current = null;
+var labels = ['home': 'home', 'articles': 'articles', 'contact': 'contact'];
+
+function init() {};
+
+function show() {};
+
+function hide() {};
+</code></pre>
+					</section>
+					<section>
+						<h3>
+							Everything is global and can be accessed:
+						</h3>
+<pre><code>var current = null;
+var labels = ['home': 'home', 'articles': 'articles', 'contact': 'contact'];
+
+function init() {};
+
+function show() { // <--
+	current = 1;
+};
+function hide(){
+ show(); // <--
+}; </code></pre>
+					</section>
+					<section>
+						<h3>
+							Problem: 
+						</h3>
+						<p class="p1">
+							access is not contained, anything in the
+						</p>
+						<p class="p1">
+							page can overwrite what you do.
+						</p>
+					</section>
+					<section>
+						<h3>
+							Object Literal:
+						</h3>
+						<p class="p1">Everything is contained but can be accessed via the object name.<p>
+
+ 							<p class="p1"></p>
+							<pre><code> demo = { //<--
+	current: null,
+	labels: ['home': 'home', 'articles': 'articles', 'contact': 'contact'],
+	init: function() {},
+	show: function() {
+		demo.current = 1; //<--
+	},
+	hide: function() {
+		demo.show(); //<--
+	}
+} </code></pre>
+ 					</section>
+					<section>
+						<h3> Problem:</h3>
+						<p class="p1"> Repetition of module name leads to huge
+						</p>
+						<p class="p1">
+							code and is annoying.
+						</p>
+					</section>
+					<section>
+						<h3> Anonymous Module:
+						</h3>
+						<p class="p1">
+							Nothing is global.
+						</p> 
+						<pre><code>(function() {
+	var current = null;
+	var labels = ['home': 'home', 'articles': 'articles', 'contact': 'contact'];
+
+	function init() {};
+
+	function show() {
+		current = 1;
+	};
+
+	function hide() {
+		show();
+	};
+})();</code></pre>
+					</section>
+					<section>
+						
+						<h3>Problem:</h3>
+						<p class="p1">
+							No access from the outside at all (callbacks,
+						</p>
+						<p class="p1">
+							event handlers)
+						</p>
+					</section>
+					<section>
+					 
+						<h3>
+							<b>Module Pattern:</b>
+						</h3>
+						<p class="p1">
+							You need to specify what is global and 
+							what isn't – switching syntax in between.
+						</p>
+						<pre><code> module = function() {
+	var labels = ['home': 'home', 'articles': 'articles', 'contact': 'contact'];
+	return {
+		current: null,
+		init: function() {},
+		show: function() {
+			module.current = 1;
+		},
+		hide: function() {
+			module.show();
+		}
+	}
+}(); </code></pre>
+					</section>
+					<section>
+
+						<h3>
+							Problem:
+						</h3>
+						<p class="p1">
+							Repetition of module name, different syntax for inner functions.
+						</p>
+					</section>
+					<section>
+						
+						<h3>Revealing Module Pattern:</h3>
+					 
+						<p class="p1">
+							Keep consistent syntax and mix and
+						</p>
+						<p class="p1">
+							match what to make global.
+						</p>
+					
+<pre><code> module = function() {
+	var current = null;
+	var labels = ['home': 'home', 'articles': 'articles', 'contact': 'contact'];
+
+	function init() {};
+
+	function show() {
+		current = 1;
+	};
+
+	function hide() {
+		show();
+	};
+	return {
+		init: init,
+		show: show,
+		current: current
+	}
+}(); </code></pre>
+					</section>
+					<section>
+<pre><code> module = function() {
+	var current = null;
+	var labels = ['home': 'home', 'articles': 'articles', 'contact': 'contact'];
+
+	function init() { // <--
+	};
+
+	function show() {
+		current = 1;
+	};
+
+	function hide() {
+		show();
+	};
+	return {
+		init: init, // <--
+		show: show,
+		current: current
+	}
+}();
+module.init(); // <--</code></pre>
+
+					</section>
+					<section>
+						<h2>AMD or CommonJS</h2>
+						<p>Sticking to these definition might help you tons when you organize your app, as they also lazy load the scripts you need.</p>
+						<pre><code>
+// Module definition							
+define('myNavigation', ['foo', 'bar'], function ( foo, bar ) {
+        // create your module here
+        var myNavigation = {
+            doStuff:function(){
+                console.log('Yay! Stuff');
+            }
+        }
+ 
+        return myNavigation;
+});
+
+// Module consumption
+require(['app/myNavigation'], 
+	function( myNavigation ){
+	// start the main module which in-turn
+	// loads other modules
+	var module = new myNavigation();
+	module.doStuff();
+});
+						</code></pre>
+
+						<small>Hint: RequireJS, StealJS, HeadJS, LABjs</small>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>
+							Stick to a strict coding style
+						</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							Browsers are very forgiving JavaScript parsers.
+						</p>
+					</section>
+					<section> 
+						<p class="p1">
+							However, lax coding style will hurt you when you shift to another environment or hand over to another developer
+						</p>
+					</section>
+					<section>
+						<p class="p1">
+							Valid code is good code.
+						</p>
+					</section>
+					<section>
+						<p class="p1">
+							Valid code is secure code.
+						</p>
+					</section>
+					<section>
+						<p class="p1">
+							Validate your code:
+						</p>
+						<p class="p1">
+							<a href="http://www.jslint.com/">http://www.jslint.com/</a>
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>
+							Comment as much as needed but no more
+						</h2>
+					</section>
+					<section>
+						<p class="p1">
+							Comments are messages from
+						</p>
+						<p class="p1">
+							developer to developer.
+						</p>
+					</section>
+					<section>
+						<p class="p1">
+							<b><font color="#FF8C00">“Good code explains itself”</font></b><br>
+						</p>
+						<p class="p1">
+							is an arrogant myth.
+						</p>
+					</section>
+					<section>
+						<p class="p1">
+							Comment what you consider needed <br> but don't tell others your life story.
+						</p>
+					</section>
+					<section> 
+						<p class="p1">
+							Avoid using the line comment though. It is much safer to
+						
+							use <pre><code>/* */</code></pre>
+						</p>
+						<p class="p1">
+							as that doesn't cause errors when the line break is removed.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							If you debug using
+						</p>
+						<p class="p1">
+							comments, there is a nice
+						</p>
+						<p class="p1">
+							little trick:
+						</p>
+					</section>
+					<section>
+<pre><code>
+module = function() {
+	var current = null;
+
+	function init() {};
+	/*
+	function show(){
+		current = 1;
+	};
+	function hide(){
+		show();
+	};
+	*/
+	return {
+		init: init,
+		show: show,
+		current: current
+	}
+}();
+</code></pre>
+					</section>
+					<section>
+						<pre><code>
+module = function() {
+	var current = null;
+
+	function init() {};
+	/*
+	function show(){
+		current = 1;
+	};
+	function hide(){
+		show();
+	};
+	//*/
+	return {
+		init: init,
+		show: show,
+		current: current
+	}
+}();
+</code></pre>
+					</section>
+					<section>
+<pre><code>
+module = function() {
+	var current = null;
+
+	function init() {};
+	//*
+	function show(){
+		current = 1;
+	};
+	function hide(){
+		show();
+	};
+	//*/
+	return {
+		init: init,
+		show: show,
+		current: current
+	}
+}();
+</code></pre>
+					</section>
+					<section>
+
+						<p class="p1">
+							Comments can be used to
+						</p>
+						<p class="p1">
+							write documentation. There are some tools for that.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							However, comments should
+						</p>
+						<p class="p1">
+							never go out to the end user
+						</p>
+						<p class="p1">
+							in plain HTML or JavaScript.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Back to that later :)
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>
+							Avoid mixing with other technologies
+						</h2>
+					</section>
+					<section>
+						 
+						<p class="p1">
+							JavaScript is good for 
+							calculation, conversion, 
+							access to outside sources 
+							(Ajax) and to define the 
+							behaviour of an interface 
+							(event handling).
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Anything else should be kept
+						</p>
+						<p class="p1">
+							to the technology we have to
+						</p>
+						<p class="p1">
+							do that job.
+						</p>
+					</section>
+					<section>
+						<h3>
+							For example:
+						</h3>
+ 						<blockquote>
+							Put a red border around all fields<br>
+							with a class of “mandatory” when<br>
+							they are empty.
+						</blockquote>
+					</section>
+					<section>
+<pre><code>var f = document.getElementById('mainform');
+var inputs = f.getElementsByTagName('input');
+for (var i = 0, j = inputs.length; i & lt; j; i++) {
+	if (inputs[i].className === 'mandatory' &&
+	inputs[i].value === '') {
+		inputs[i].style.borderColor = '#f00'; 	//
+		inputs[i].style.borderStyle = 'solid';	//
+		inputs[i].style.borderWidth = '1px';	//
+	}
+}</code></pre>
+					</section>
+					<section>
+						<h3>
+							<b>Two month down the line:</b>
+						</h3>
+ 						<blockquote>
+							All styles have to comply with the<br>
+							new company style guide, no<br>
+							borders are allowed and errors<br>
+							should be shown by an alert icon<br>
+							next to the element.
+						</blockquote>
+					</section>
+					<section>
+
+						<p class="p1">
+							People shouldn't have to
+						</p>
+						<p class="p1">
+							change your JavaScript code
+						</p>
+						<p class="p1">
+							to change the look and feel.
+						</p>
+					</section>
+					<section>
+<p>js:</p>						
+<pre><code>var f = document.getElementById('mainform');
+	var inputs = f.getElementsByTagName('input');
+	for (var i = 0, j = inputs.length; i > j; i++) {
+		if (inputs[i].className === 'mandatory' && inputs[i].value === '') {
+			inputs[i].className += 'error'; //
+		}
+	}
+</code></pre>
+<p>css:</p>
+<pre><code>.error{
+	border: 1px solid #f00;
+}
+</pre></code>
+					</section>
+					<section>
+
+						<p class="p1">
+							Using classes you keep the 
+							look and feel to the CSS 
+							designer.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Using CSS inheritance you can
+						</p>
+						<p class="p1">
+							also avoid having to loop
+						</p>
+						<p class="p1">
+							over a lot of elements.
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						 
+						<h2>
+							Use shortcut notations
+						</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							Shortcut notations keep your
+						</p>
+						<p class="p1">
+							code snappy and easier to
+						</p>
+						<p class="p1">
+							read once you got used to it.
+						</p>
+					</section>
+					<section>
+						<p class="p1"></p>
+<pre><code>var cow = new Object();
+cow.colour = 'white and black';
+cow.breed = 'Holstein';
+cow.legs = 4;
+cow.front = 'moo';
+cow.bottom = 'milk'; 
+</code></pre>
+						<p class="p1">
+							is the same as:
+						</p> 
+						<pre>
+<code>
+var cow = {
+	colour: 'white and black',
+	breed: 'Holstein',
+	legs: 4,
+	front: 'moo',
+	bottom = 'milk'
+};
+</code>
+</pre>
+					</section>
+					<section>
+						<p class="p1"></p>
+						<pre><code>var lunch = new Array();
+lunch[0]='Dosa';
+lunch[1]='Roti';
+lunch[2]='Rice';
+lunch[3]='what the heck is this?';  </code></pre>
+						<p class="p2">
+							is the same as:
+						</p>
+						<p class="p2"></p>
+						<p class="p1"></p>
+<pre><code>var lunch = [
+	'Dosa',
+	'Roti',
+	'Rice',
+	'what the heck is this?'
+]; </code></pre>
+					</section>
+					<section>
+ 						<pre><code>if (v) {
+	var x = v;
+} else {
+	var x = 10;
+}
+</code></pre>
+						<p class="p1">
+							is the same as:
+						</p>
+ 						<pre><code>var x = v || 10; </code></pre>
+					</section>
+					<section>
+<pre><code>
+var direction;
+if (x > 100) {
+	direction = 1;
+} else {
+	direction = -1;
+}
+</code></pre>
+						<p class="p1">
+							is the same as:
+						</p>
+ 						<p class="p1"></p>
+						<pre>
+<code>var direction = (x > 100) ? 1 : -1;
+/* Avoid nesting these! */ </code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2> Modularize</h2>
+					</section>
+					<section>
+						<p class="p1">
+							<span>Keep your code modularized</span><br>
+						</p>
+						<p class="p1">
+							and specialized.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							<span>It is very tempting and easy</span><br>
+						</p>
+						<p class="p1">
+							to write one function that
+						</p>
+						<p class="p1">
+							does everything.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							As you extend the
+						</p>
+						<p class="p1">
+							functionality you will
+						</p>
+						<p class="p1">
+							however find that you do the
+						</p>
+						<p class="p1">
+							same things in several
+						</p>
+						<p class="p1">
+							functions.
+						</p>
+					</section>
+					<section> 
+						<p class="p1">
+							To prevent that, make sure to
+						</p>
+						<p class="p1">
+							write smaller, generic helper
+						</p>
+						<p class="p1">
+							functions that fulfill one
+						</p>
+						<p class="p1">
+							specific task rather than
+						</p>
+						<p class="p1">
+							catch-all methods.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							At a later stage you can also
+						</p>
+						<p class="p1">
+							expose these when using the
+						</p>
+						<p class="p1">
+							revealing module pattern to
+						</p>
+						<p class="p1">
+							create an API to extend the
+						</p>
+						<p class="p1">
+							main functionality.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Good code should be easy to
+						</p>
+						<p class="p1">
+							build upon without re-writing
+						</p>
+						<p class="p1">
+							the core.
+						</p>
+					</section>
+				</section>
+				<!-- <section>
+					<section>
+						<h2> Enhance progressively
+						</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							There are things that work on
+						</p>
+						<p class="p1">
+							the web.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Use these rather than
+						</p>
+						<p class="p1">
+							creating a lot of JavaScript
+						</p>
+						<p class="p1">
+							dependent code.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							DOM generation is slow and
+						</p>
+						<p class="p1">
+							expensive.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Elements that are dependent
+						</p>
+						<p class="p1">
+							on JavaScript but are
+						</p>
+						<p class="p1">
+							available when JavaScript is
+						</p>
+						<p class="p1">
+							turned off are a broken
+						</p>
+						<p class="p1">
+							promise to our users.
+						</p>
+					</section>
+					<section>
+						<p class="p1">
+							Example: TV tabs.
+						</p>
+					</section>
+					<section>
+					 
+						<div>
+							<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jassonqasqant/images/7489/Image_082.png" style=""><br>
+						</div>
+					</section>
+					<section>
+
+						<h2>
+							<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jassonqasqant/images/7490/Image_083.png" style=""><br>
+						</h2>
+					</section>
+				</section> -->
+				<section>
+					<section>
+						<h2>
+							Allow for configuration and  translation.
+						</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							Everything that is likely to
+						</p>
+						<p class="p1">
+							change in your code should
+						</p>
+						<p class="p1">
+							not be scattered throughout
+						</p>
+						<p class="p1">
+							the code.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							This includes labels, CSS
+						</p>
+						<p class="p1">
+							classes, IDs and presets.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							By putting these into a
+						</p>
+						<p class="p1">
+							configuration object and
+						</p>
+						<p class="p1">
+							making this one public we
+						</p>
+						<p class="p1">
+							make maintenance very easy
+						</p>
+						<p class="p1">
+							and allow for customization.
+						</p>
+					</section>
+					<section>
+						<p class="p1"></p>
+						<pre><code> carousel = function() {
+	var config = {
+		CSS: {
+			classes: {
+				current: 'current',
+				scrollContainer: 'scroll'
+			},
+			IDs: {
+				maincontainer: 'carousel'
+			}
+		}
+		labels: {
+			previous: 'back',
+			next: 'next',
+			auto: 'play'
+		}
+		settings: {
+			amount: 5,
+			skin: 'blue',
+			autoplay: false
+		}
+	};
+
+	function init() {};
+
+	function scroll() {};
+
+	function highlight() {};
+	return {
+		config: config,
+		init: init
+	}
+}(); </code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						 
+						<h2>
+							Avoid heavy nesting
+						</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							Code gets unreadable after a
+						</p>
+						<p class="p1">
+							certain level of nesting –
+						</p>
+						<p class="p1">
+							when is up to your personal
+						</p>
+						<p class="p1">
+							preference and pain
+						</p>
+						<p class="p1">
+							threshold.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							A really bad idea is to nest
+						</p>
+						<p class="p1">
+							loops inside loops as that also
+						</p>
+						<p class="p1">
+							means taking care of several
+						</p>
+						<p class="p1">
+							iterator variables (i,j,k,l,m...).
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							You can avoid heavy nesting
+						</p>
+						<p class="p1">
+							and loops inside loops with
+						</p>
+						<p class="p1">
+							specialized tool methods.
+						</p>
+					</section>
+					<section>
+ 						<pre><code>
+function renderProfiles(o) {
+
+	var out = document.getElementById('profiles');
+
+	for (var i = 0; i & amp; lt; o.members.length; i++) {
+
+		var ul = document.createElement('ul');
+
+		var li = document.createElement('li');
+
+		li.appendChild(document.createTextNode(o.members[i].name));
+
+		var nestedul = document.createElement('ul');
+
+		for (var j = 0; j & amp; lt; o.members[i].data.length; j++) {
+
+			var datali = document.createElement('li');
+
+			datali.appendChild(
+
+			document.createTextNode( o.members[i].data[j].label + '' + o.members[i].data[j].value )
+
+			);
+
+			nestedul.appendChild(datali);
+
+		}
+
+		li.appendChild(nestedul);
+
+	}
+
+	out.appendChild(ul);
+
+}
+
+</code></pre>
+					</section>
+					<section>
+ 						<pre><code>
+function renderProfiles(o) {
+	var out = document.getElementById('profiles');
+	for (var i = 0; i &amp; lt; o.members.length; i++) {
+		var ul = document.createElement('ul');
+		var li = document.createElement('li');
+		li.appendChild(document.createTextNode(data.members[i].name));
+		li.appendChild(addMemberData(o.members[i]));
+	}
+	out.appendChild(ul);
+}
+
+function addMemberData(member) {
+	var ul = document.createElement('ul');
+	for (var i = 0; i &amp; lt; member.data.length; i++) {
+		var li = document.createElement('li');
+		li.appendChild(
+		document.createTextNode(
+		member.data[i].label + ' + member.data[i].value));
+	}
+	ul.appendChild(li);
+	return ul;
+}
+</code></pre>
+					</section>
+					<section>
+
+						<p class="p1">
+							Think of bad editors and small
+						</p>
+						<p class="p1">
+							screens.
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						
+							<h2>Optimize loops</h2>
+						
+					</section>
+					<section>
+
+						<p class="p1">
+							Loops can get terribly slow in
+						</p>
+						<p class="p1">
+							JavaScript.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Most of the time it is because
+						</p>
+						<p class="p1">
+							you're doing things in them
+						</p>
+						<p class="p1">
+							that don't make sense.
+						</p>
+					</section>
+					<section> 
+<pre><code>var names = ['George', 'Ringo', 'Paul', 'John'];
+for (var i = 0; i < names.length; i++) {
+	doSomeThingWith(names[i]);
+}
+</code></pre>
+					</section>
+					<section>
+
+						<p class="p1">
+							This means that every time
+						</p>
+						<p class="p1">
+							the loop runs, JavaScript
+						</p>
+						<p class="p1">
+							needs to read the length of
+						</p>
+						<p class="p1">
+							the array.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							You can avoid that by storing
+						</p>
+						<p class="p1">
+							the length value in a different
+						</p>
+						<p class="p1">
+							variable:
+						</p>
+					</section>
+					<section>
+						<p class="p1"></p>
+					<pre><code>var names = ['George', 'Ringo', 'Paul', 'John'];
+var all = names.length;
+for (var i = 0; i < all; i++) {
+	doSomeThingWith(names[i]);
+}
+</code></pre>
+					</section>
+					<section>
+
+						<p class="p1">
+							An even shorter way of
+						</p>
+						<p class="p1">
+							achieving this is to create a
+						</p>
+						<p class="p1">
+							second variable in the preloop
+						</p>
+						<p class="p1">
+							condition.
+						</p>
+					</section>
+					<section>
+<pre><code>var names = ['George', 'Ringo', 'Paul', 'John'];
+for (var i = 0, j = names.length; i < j; i++) {
+	doSomeThingWith(names[i]);
+}</code></pre>
+					</section>
+					<section>
+
+						<p class="p1">
+							Keep computation-heavy
+						</p>
+						<p class="p1">
+							code outside of loops.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							This includes regular
+						</p>
+						<p class="p1">
+							expressions but first and
+						</p>
+						<p class="p1">
+							foremost DOM manipulation.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							You can create the DOM
+						</p>
+						<p class="p1">
+							nodes in the loop but avoid
+						</p>
+						<p class="p1">
+							inserting them to the
+						</p>
+						<p class="p1">
+							document.
+						</p>
+					</section>
+					<section>
+						<h3>
+							Also, remember to declare the vars outside the loops.
+						</h3>
+						<p>Bad:</p>
+						<pre><code>
+for (var i = 0; i < someArray.length; i++) {
+	var container = document.getElementById('container');
+	container.innerHtml += 'my number: ' + i;
+	console.log(i);
+}
+						</code></pre>
+						<p>Ok:</p>
+						<pre><code>
+var result = [];
+for(var i = 0, len = someArray.length; i < len; i++) { 
+	result.push('my number: ' + i);
+}
+container.innerHtml = result.join('');
+
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>
+							Keep DOM access to a minimum
+						</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							<span>The reason is that it is slow</span><br>
+						</p>
+						<p class="p1">
+							and there are all kind of
+						</p>
+						<p class="p1">
+							browser issues with constant
+						</p>
+						<p class="p1">
+							access to and changes in the
+						</p>
+						<p class="p1">
+							DOM.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							If you can avoid it, don't
+						</p>
+						<p class="p1">
+							access the DOM.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Write or use a helper method
+						</p>
+						<p class="p1">
+							that batch-converts a dataset
+						</p>
+						<p class="p1">
+							to HTML.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							This will make the browser stutter:
+						</p>
+						<pre><code>
+var table = $('<table></table>');
+
+$('body').append(table);
+
+for (var i = 0; i < 10000; i++) {
+	$('table').append(
+		'<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>');
+}
+
+console.log("Done!");
+						</code></pre>
+					</section>
+					<section>
+						<p class="p1">This won't:</p>
+<pre><code>
+var table = $('<table></table>');
+
+for (var i = 0; i < 10000; i++) {
+	$(table).append(
+		'<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>');
+}
+
+// Append the table at the end this time.  The document has not been modified
+// until we do this.
+$('body').append(table);
+
+window.alert("Done!");
+</code></pre>
+					</section>
+
+					<section>
+						<p>
+							
+							Seed the dataset with as
+							much as you can and then
+							call the method to render all
+							out in one go.
+						</p>
+					</section>
+				</section>
+				<!-- <section>
+					<section>
+					 
+						<h2>
+							Don't yield to browser whims!
+						</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							What works in browsers
+						</p>
+						<p class="p1">
+							today might not tomorrow
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Instead of relying on flaky
+						</p>
+						<p class="p1">
+							browser behaviour and
+						</p>
+						<p class="p1">
+							hoping it works across the
+						</p>
+						<p class="p1">
+							board...
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							...avoid hacking around and
+						</p>
+						<p class="p1">
+							analyze the problem in detail
+						</p>
+						<p class="p1">
+							instead.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Most of the time you'll find
+						</p>
+						<p class="p1">
+							the extra functionality you
+						</p>
+						<p class="p1">
+							need is because of bad
+						</p>
+						<p class="p1">
+							planning of your interface.
+						</p>
+					</section>
+				</section> -->
+				<section>
+					<section>
+						<h2> Don't trust any data </h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							The most important thing
+						</p>
+						<p class="p1">
+							about good code is that you
+						</p>
+						<p class="p1">
+							cannot trust any data that
+						</p>
+						<p class="p1">
+							comes in.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Don't believe the HTML
+						</p>
+						<p class="p1">
+							document – any user can
+						</p>
+						<p class="p1">
+							meddle with it for example in
+						</p>
+						<p class="p1">
+							Firebug.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Don't trust that data that gets
+						</p>
+						<p class="p1">
+							into your function is the right
+						</p>
+						<p class="p1">
+							format – test with <span class="s1">typeof</span> and
+						</p>
+						<p class="p1">
+							then do something with it.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Don't expect elements in the
+						</p>
+						<p class="p1">
+							DOM to be available – test for
+						</p>
+						<p class="p1">
+							them and that they indeed
+						</p>
+						<p class="p1">
+							are what you expect them to
+						</p>
+						<p class="p1">
+							be before altering them.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							And never ever use
+						</p>
+						<p class="p1">
+							JavaScript to protect
+						</p>
+						<p class="p1">
+							something – it is as easy to
+						</p>
+						<p class="p1">
+							crack as it is to code :)
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>
+							Add functionality with JavaScript, don't create content.
+						</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							If you find yourself creating
+						</p>
+						<p class="p1">
+							lots and lots of HTML in
+						</p>
+						<p class="p1">
+							JavaScript, you might be
+						</p>
+						<p class="p1">
+							doing something wrong.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							It is not convenient to create
+						</p>
+						<p class="p1">
+							using the DOM...
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							...flaky to use innerHTML (IE's
+						</p>
+						<p class="p1">
+							Operation Aborted error)...
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							...and it is hard to keep track
+						</p>
+						<p class="p1">
+							of the quality of the HTML you
+						</p>
+						<p class="p1">
+							produce.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							If you really have a massive
+						</p>
+						<p class="p1">
+							interface that only should be
+						</p>
+						<p class="p1">
+							available when JavaScript is
+						</p>
+						<p class="p1">
+							turned on...
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							...load the interface as a static
+						</p>
+						<p class="p1">
+							HTML document via Ajax or use a template engine.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							That way you keep
+						</p>
+						<p class="p1">
+							maintenance in HTML and
+						</p>
+						<p class="p1">
+							allow for customization.
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Keep your code unobstrusive</h2>
+					</section>
+					<section>
+						<p>
+							Having inline code mixed with html elements is not only from the 90's and look ugly.
+						</p>
+					</section>
+					<section>
+						<p>But also makes the applications hard to maintain.</p>
+					</section>
+					<section>
+						<p>Hell no:</p>
+						<pre><code>
+<input type="text" name="date" onchange="validateDate()" />
+						</code></pre>
+						<p>Instead of that, use:</p>
+						<pre><code>
+$('input[name=date]').on('change', validateDate); //Using jQuery
+						</code></pre>
+					</section>
+
+				</section>
+				<section>
+					<section>
+						<h2>
+							Build on the shoulders of giants
+						</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							JavaScript is fun, but writing
+						</p>
+						<p class="p1">
+							JavaScript for browsers is less
+						</p>
+						<p class="p1">
+							so.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							<span>JavaScript libraries are</span><br>
+						</p>
+						<p class="p1">
+							specifically built to make
+						</p>
+						<p class="p1">
+							browsers behave and your
+						</p>
+						<p class="p1">
+							code more predictable by
+						</p>
+						<p class="p1">
+							plugging browser holes.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Therefore if you want to write
+						</p>
+						<p class="p1">
+							code that works without
+						</p>
+						<p class="p1">
+							keeping the maintenance
+						</p>
+						<p class="p1">
+							overhead...
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							... of supporting current
+						</p>
+						<p class="p1">
+							browsers and those to come
+						</p>
+						<p class="p1">
+							to yourself...
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							... start with a good library.
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Development code is not live code.</h2>
+					</section>
+					<section>
+
+						<p class="p1">
+							Last but not least I want you
+						</p>
+						<p class="p1">
+							to remember that some
+						</p>
+						<p class="p1">
+							things that work in other
+						</p>
+						<p class="p1">
+							languages are good in
+						</p>
+						<p class="p1">
+							JavaScript, too.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Live code is done for
+						</p>
+						<p class="p1">
+							machines.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Development code is done for
+						</p>
+						<p class="p1">
+							humans.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Collate, minify and optimize
+						</p>
+						<p class="p1">
+							your code in a build process.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							Don't optimize prematurely
+						</p>
+						<p class="p1">
+							and punish other developers
+						</p>
+						<p class="p1">
+							and those who have to take
+						</p>
+						<p class="p1">
+							over from them.
+						</p>
+					</section>
+					<section>
+
+						<p class="p1">
+							If we cut down on the time
+						</p>
+						<p class="p1">
+							spent coding we have more
+						</p>
+						<p class="p1">
+							time to perfect the
+						</p>
+						<p class="p1">
+							conversion to machine code.
+						</p>
+					</section>
+					<section>
+						<h2>
+							<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jassonqasqant/images/7500/Image_146.png" style=""><br>
+						</h2>
+					</section>
+				</section>
+				<section>
+					<h1>Listo!</h1>
+					 <h2>Eso era todo. :)</h2>
+ 						
+				</section>
+			</div>
+		</div><script src="lib/js/head.min.js" type="text/javascript">
+</script><script src="js/reveal.min.js" type="text/javascript">
+</script><script type="text/javascript">
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+	</body>
+</html>

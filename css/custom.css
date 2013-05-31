@@ -1,0 +1,8 @@
+body{
+	background-image: url(../img/bg.png);
+	background-position: center;
+	background-size: 100%;
+}.preach body{
+	background: transparent url(../img/image_008.png) center center;
+	background-size: 100%;
+}
