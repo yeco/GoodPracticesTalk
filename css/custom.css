@@ -2,3 +2,6 @@
 	background: transparent url(../img/preach.png) center center;
 	background-size: 100%;
 }
+.img.preload{
+	display: none;
+}
