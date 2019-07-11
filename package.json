@@ -24,7 +24,7 @@
     "underscore": "1.9.1",
     "express": "3.21.2",
     "mustache": "2.3.2",
-    "socket.io": "0.9.19"
+    "socket.io": "2.2.0"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "0.12.0",
